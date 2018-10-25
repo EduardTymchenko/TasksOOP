@@ -9,8 +9,10 @@ public class Circle extends Shape{
     private double lengthRadius;
 
     public Circle(Point centerPoint, Point radiusPoint) {
+        //Circle circle = null;
         this.centerPoint = centerPoint;
         this.radiusPoint = radiusPoint;
+
         lengthRadius = Math.sqrt(Math.pow((radiusPoint.getX() - centerPoint.getX()),2) +
                 Math.pow((radiusPoint.getY() - centerPoint.getY()),2));
     }
