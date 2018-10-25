@@ -6,29 +6,30 @@
 public class Rectangle extends Shape{
     private Point a;
     private Point b;
-    private double sideA;
-    private double sideB;
 
     public Rectangle(Point a, Point b) {
         this.a = a;
         this.b = b;
-        sideA = b.getY() - a.getY();
-        sideB = b.getX() - a.getX();
     }
+    // diagonal for checking the existence of a rectangle
+    public boolean checkShape(){
+        if(getLine(a,b) == 0){
+            System.out.println("! The Rectangle does not exist!");
+            return false;
+        }
+        return true;
 
+    }
 
     @Override
     public double getPerimetr() {
-        if (sideA == 0 || sideB == 0) {
-            System.out.println("The rectangle does not exist!");
-            return 0;
-        }
-        return (sideA + sideB) * 2 ;
+        if (checkShape()) return ((b.getY() - a.getY()) + (b.getX() - a.getX())) * 2 ;
+        else return -1;
     }
 
     @Override
     public double getArea() {
-        if (sideA == 0 || sideB == 0) System.out.println("The rectangle does not exist!");
-        return sideA * sideB;
+        if (checkShape()) return (b.getY() - a.getY()) * (b.getX() - a.getX());
+        else return -1;
     }
 }

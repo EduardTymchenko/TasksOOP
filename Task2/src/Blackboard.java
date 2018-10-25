@@ -31,6 +31,7 @@ public class Blackboard {
                     System.out.print("Enter radius Y (double): ");
                     double radiusY = sc.nextDouble();
                     shape = new Circle(new Point(centerX,centerY),new Point(radiusX,radiusY));
+                    if (!shape.checkShape()) shape = null;
                     stop = true;
                     break;
                 case "rectangle":
@@ -43,6 +44,7 @@ public class Blackboard {
                     System.out.print("Enter vertex of the rectangle diagonally Y (double): ");
                     double endTopY = sc.nextDouble();
                     shape = new Rectangle(new Point(startTopX,startTopY),new Point(endTopX,endTopY));
+                    if (!shape.checkShape()) shape = null;
                     stop = true;
                     break;
                 case "triangle":
@@ -59,10 +61,12 @@ public class Blackboard {
                     System.out.print("Enter Y for triangle top C(double): ");
                     double cY = sc.nextDouble();
                     shape = new Triangle(new Point(aX,aY),new Point(bX,bY),new Point(cX,cY));
+                    if (!shape.checkShape()) shape = null;
                     stop = true;
                     break;
             }
         }while (!stop);
+
         do {
             System.out.print("Enter section to add (1-4)(exit 0): ");
             numberSection = sc.nextInt();
@@ -72,6 +76,7 @@ public class Blackboard {
             }
             if (numberSection == 0) break;
         }while (true);
+
         if (numberSection != 0){
             sections[numberSection - 1] = shape;
             System.out.println("Shape is added");
@@ -79,6 +84,7 @@ public class Blackboard {
             System.out.println("Shape is not added, enter EXIT");
         }
     }
+
     public void delShape(){
         Scanner sc = new Scanner(System.in);
         int numberSection;
@@ -89,7 +95,7 @@ public class Blackboard {
         }while (numberSection < 0 || numberSection > 4);
         if (numberSection !=0) {
             sections[numberSection - 1] = null;
-            System.out.println("Shape is delete from section " + (numberSection - 1));
+            System.out.println("Shape is delete from section " + (numberSection));
         }else{
             System.out.println("Exit from the method to remove a figure");
         }

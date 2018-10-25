@@ -6,27 +6,29 @@
 public class Circle extends Shape{
     private Point centerPoint;
     private Point radiusPoint;
-    private double lengthRadius;
 
     public Circle(Point centerPoint, Point radiusPoint) {
-        //Circle circle = null;
         this.centerPoint = centerPoint;
         this.radiusPoint = radiusPoint;
-
-        lengthRadius = Math.sqrt(Math.pow((radiusPoint.getX() - centerPoint.getX()),2) +
-                Math.pow((radiusPoint.getY() - centerPoint.getY()),2));
     }
 
+    public boolean checkShape(){
+        if(getLine(centerPoint,radiusPoint) == 0){
+            System.out.println("! The Circle does not exist!");
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public double getPerimetr() {
-        if (lengthRadius == 0) System.out.println("The Circle does not exist!");
-        return 2 * Math.PI * lengthRadius ;
+        if (checkShape()) return 2 * Math.PI * getLine(centerPoint,radiusPoint);
+        return  -1;
     }
 
     @Override
     public double getArea() {
-        if (lengthRadius == 0) System.out.println("The Circle does not exist!");
-        return Math.PI * lengthRadius * lengthRadius;
+        if (checkShape()) return Math.PI * Math.pow(getLine(centerPoint,radiusPoint),2);
+        return -1;
     }
 }

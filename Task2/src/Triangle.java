@@ -7,37 +7,35 @@ public class Triangle extends Shape{
     private Point a;
     private Point b;
     private Point c;
-    private double sideA;
-    private double sideB;
-    private double sideC;
 
     public Triangle(Point a, Point b, Point c) {
-        // проверка существования треугольника
         this.a = a;
         this.b = b;
         this.c = c;
-        sideA = Math.sqrt(Math.pow((b.getX() - a.getX()),2) + Math.pow((b.getY() - a.getY()),2));
-        sideB = Math.sqrt(Math.pow((c.getX() - b.getX()),2) + Math.pow((c.getY() - b.getY()),2));
-        sideC = Math.sqrt(Math.pow((c.getX() - a.getX()),2) + Math.pow((c.getY() - a.getY()),2));
     }
 
-    private boolean triangleOk(){
-        if((sideA + sideB <= sideC) || (sideA + sideC <= sideB) || (sideC + sideB <= sideA)) return false;
+    public boolean checkShape(){
+        double sideA = getLine(a,b);
+        double sideB = getLine(b,c);
+        double sideC = getLine(a,c);
+        if((sideA + sideB <= sideC) || (sideA + sideC <= sideB) || (sideC + sideB <= sideA)){
+            System.out.println("! The Triangle does not exist!");
+            return false;
+        }
         return true;
     }
 
+
     @Override
     public double getPerimetr() {
-        if (!triangleOk()){
-            System.out.println("The Triangle does not exist!");
-            return 0;
-        }
-        return sideA + sideB + sideC;
+        if (checkShape()) return getLine(a,b) + getLine(b,c) + getLine(a,c);
+        return -1;
     }
 
     @Override
     public double getArea() {
-        double halfPerimetr = 0.5 * getPerimetr();
-        return Math.sqrt(halfPerimetr * (halfPerimetr - sideA) * (halfPerimetr - sideB) * (halfPerimetr - sideC));
+        double halfP = 0.5 * getPerimetr();
+        if (checkShape()) return Math.sqrt(halfP * (halfP - getLine(a,b)) * (halfP - getLine(b,c)) * (halfP - getLine(a,c)));
+        return -1;
     }
 }
