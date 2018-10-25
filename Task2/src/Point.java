@@ -1,5 +1,5 @@
 /*
-Создайте класс Point в котором есть два свойства double x и double y
+РЎРѕР·РґР°Р№С‚Рµ РєР»Р°СЃСЃ Point РІ РєРѕС‚РѕСЂРѕРј РµСЃС‚СЊ РґРІР° СЃРІРѕР№СЃС‚РІР° double x Рё double y
  */
 public class Point {
     private double x;
