@@ -1,6 +1,6 @@
 /*
-Создайте абстрактный класс Shape в котором есть два
-абстрактных метода double getPerimetr() и double getArea().
+РЎРѕР·РґР°Р№С‚Рµ Р°Р±СЃС‚СЂР°РєС‚РЅС‹Р№ РєР»Р°СЃСЃ Shape РІ РєРѕС‚РѕСЂРѕРј РµСЃС‚СЊ РґРІР°
+Р°Р±СЃС‚СЂР°РєС‚РЅС‹С… РјРµС‚РѕРґР° double getPerimetr() Рё double getArea().
  */
 public abstract class Shape {
     public abstract double getPerimetr();
