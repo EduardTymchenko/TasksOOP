@@ -1,5 +1,5 @@
 /*
-На его основе создайте класс студент (переопределите метод вывода информации)
+РќР° РµРіРѕ РѕСЃРЅРѕРІРµ РєР»Р°СЃСЃР° С‡РµР»РѕРІРµРєР° СЃРѕР·РґР°Р№С‚Рµ РєР»Р°СЃСЃ СЃС‚СѓРґРµРЅС‚ (РїРµСЂРµРѕРїСЂРµРґРµР»РёС‚Рµ РјРµС‚РѕРґ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё)
 */
 public class Student extends Person implements Comparable{
     public static final String HEADER = "Ticket   First Name  Family Name  Age  Sex    Nationality\n";
