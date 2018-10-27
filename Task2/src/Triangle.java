@@ -14,6 +14,30 @@ public class Triangle extends Shape{
         this.c = c;
     }
 
+    public Point getA() {
+        return a;
+    }
+
+    public void setA(Point a) {
+        this.a = a;
+    }
+
+    public Point getB() {
+        return b;
+    }
+
+    public void setB(Point b) {
+        this.b = b;
+    }
+
+    public Point getC() {
+        return c;
+    }
+
+    public void setC(Point c) {
+        this.c = c;
+    }
+
     public boolean checkShape(){
         double sideA = getLine(a,b);
         double sideB = getLine(b,c);
@@ -24,7 +48,6 @@ public class Triangle extends Shape{
         }
         return true;
     }
-
 
     @Override
     public double getPerimetr() {

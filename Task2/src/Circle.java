@@ -10,6 +10,23 @@ public class Circle extends Shape{
     public Circle(Point centerPoint, Point radiusPoint) {
         this.centerPoint = centerPoint;
         this.radiusPoint = radiusPoint;
+
+    }
+
+    public Point getCenterPoint() {
+        return centerPoint;
+    }
+
+    public void setCenterPoint(Point centerPoint) {
+        this.centerPoint = centerPoint;
+    }
+
+    public Point getRadiusPoint() {
+        return radiusPoint;
+    }
+
+    public void setRadiusPoint(Point radiusPoint) {
+        this.radiusPoint = radiusPoint;
     }
 
     public boolean checkShape(){
