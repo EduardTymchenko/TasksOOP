@@ -1,9 +1,9 @@
 /*
-Описать класс «Vector3d» (т.е. он должен описывать вектор в 3-х
-мерной, декартовой системе координат). В качестве свойств этого
-класса возьмите координаты вектора. Для этого класса реализовать
-методы сложения, и скалярного и векторного произведения векторов.
-Создайте несколько объектов этого класса и протестируйте их.
+РћРїРёСЃР°С‚СЊ РєР»Р°СЃСЃ В«Vector3dВ» (С‚.Рµ. РѕРЅ РґРѕР»Р¶РµРЅ РѕРїРёСЃС‹РІР°С‚СЊ РІРµРєС‚РѕСЂ РІ 3-С…
+РјРµСЂРЅРѕР№, РґРµРєР°СЂС‚РѕРІРѕР№ СЃРёСЃС‚РµРјРµ РєРѕРѕСЂРґРёРЅР°С‚). Р’ РєР°С‡РµСЃС‚РІРµ СЃРІРѕР№СЃС‚РІ СЌС‚РѕРіРѕ
+РєР»Р°СЃСЃР° РІРѕР·СЊРјРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РІРµРєС‚РѕСЂР°. Р”Р»СЏ СЌС‚РѕРіРѕ РєР»Р°СЃСЃР° СЂРµР°Р»РёР·РѕРІР°С‚СЊ
+РјРµС‚РѕРґС‹ СЃР»РѕР¶РµРЅРёСЏ, Рё СЃРєР°Р»СЏСЂРЅРѕРіРѕ Рё РІРµРєС‚РѕСЂРЅРѕРіРѕ РїСЂРѕРёР·РІРµРґРµРЅРёСЏ РІРµРєС‚РѕСЂРѕРІ.
+РЎРѕР·РґР°Р№С‚Рµ РЅРµСЃРєРѕР»СЊРєРѕ РѕР±СЉРµРєС‚РѕРІ СЌС‚РѕРіРѕ РєР»Р°СЃСЃР° Рё РїСЂРѕС‚РµСЃС‚РёСЂСѓР№С‚Рµ РёС….
  */
 public class Vector3d {
     private double vectorX;
@@ -21,6 +21,31 @@ public class Vector3d {
         this.vectorY = vectorY;
         this.vectorZ = vectorZ;
     }
+
+    public double getVectorX() {
+        return vectorX;
+    }
+
+    public void setVectorX(double vectorX) {
+        this.vectorX = vectorX;
+    }
+
+    public double getVectorY() {
+        return vectorY;
+    }
+
+    public void setVectorY(double vectorY) {
+        this.vectorY = vectorY;
+    }
+
+    public double getVectorZ() {
+        return vectorZ;
+    }
+
+    public void setVectorZ(double vectorZ) {
+        this.vectorZ = vectorZ;
+    }
+
     public static Vector3d sumVectors(Vector3d a, Vector3d b){
         return new Vector3d (a.vectorX + b.vectorX, a.vectorY + b.vectorY, a.vectorZ + b.vectorZ);
     }
