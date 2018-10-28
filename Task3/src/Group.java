@@ -6,7 +6,6 @@
  */
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Group {
     private Student[] groupStudents = new Student[10];
