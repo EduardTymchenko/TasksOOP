@@ -2,12 +2,12 @@
 public class MainTask3 {
     public static void main(String[] args) {
         Person person1 = new Person("Ivan","Ivanov",18,Sex.MALE,"Ukraine");
-        System.out.println("toString() for class Person:");
+        System.out.println("Example toString() for class Person:");
         System.out.println(person1.toString());
 
         Student student1 = new Student("Nikolay","Marchenko",
                 19,Sex.MALE,"Ukraine",1234);
-        System.out.println("toString() for class Student:");
+        System.out.println("Example toString() for class Student:");
         System.out.println(Student.HEADER + student1.toString());
         Student student2 = new Student("Alex","Bubko",
                 18,Sex.MALE,"Ukraine",2345);
@@ -35,8 +35,8 @@ public class MainTask3 {
         } catch (Exception e) {
             System.out.println("*Exception*");
             System.out.println("*This group is full! \n*Students can not add!");
-
         }
+
         System.out.println(group.toString());
         System.out.println("Method search():\n" + group.search("Marchenko"));
         System.out.println("Method searchAll():\n" + group.searchAll("Murasko") );

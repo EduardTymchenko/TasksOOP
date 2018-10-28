@@ -21,7 +21,7 @@ public class Group {
         }
         throw new Exception("Add 11th element");
     }
-
+    //first incoming of last name
     public void remove(String familyName) {
         for (int i = 0; i < groupStudents.length; i++) {
             if ((groupStudents[i] != null) && (groupStudents[i].getFamilyName() == familyName)) {
@@ -35,24 +35,17 @@ public class Group {
     }
 
     public void removeAll(String familyName) {
-        Scanner sc = new Scanner(System.in);
-        String ans;
         int count = 0;
         for (int i = 0; i < groupStudents.length; i++) {
             if ((groupStudents[i - count] != null) && (groupStudents[i - count].getFamilyName() == familyName)) {
-                System.out.println(Student.HEADER + groupStudents[i - count].toString());
-                System.out.print("Do you want to remove this student? (y/n): ");
-                ans = sc.next();
-                if (ans.equalsIgnoreCase("y")) {
-                    System.out.println("The student " + groupStudents[i - count].getFamilyName() + " removed!");
                     System.arraycopy(groupStudents, i + 1 - count, groupStudents, i - count,
                             groupStudents.length - (i + 1 - count));
                     groupStudents[groupStudents.length - 1] = null;
                     count++;
-                }
             }
         }
         if (count == 0) System.out.println("The student " + familyName + " do not found!");
+        else  System.out.println("Students " + familyName + " removed!\nRemoved " + count +" records");
     }
 
     public String search(String familyName) {
