@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class MainTask3 {
     public static void main(String[] args) {
@@ -20,6 +21,7 @@ public class MainTask3 {
         Student student6 = new Student("Naday","Mironenko",
                 18,Sex.FEMALE,"Ukraine",6789);
         Group group = new Group();
+
         try {
             group.add(student1);
             group.add(student2);
@@ -32,12 +34,14 @@ public class MainTask3 {
             group.add(student1);
             group.add(student1);
             group.add(student5);
-        } catch (Exception e) {
-            System.out.println("*Exception*");
+        } catch (NoSuchFieldException e) {
+            System.out.println("*Exception* " + e.getMessage());
             System.out.println("*This group is full! \n*Students can not add!");
         }
 
         System.out.println(group.toString());
+
+
         System.out.println("Method search():\n" + group.search("Marchenko"));
         System.out.println("Method searchAll():\n" + group.searchAll("Murasko") );
         System.out.println("Method remove:");
@@ -46,5 +50,18 @@ public class MainTask3 {
         System.out.println("Method removeAll:");
         group.removeAll("Marchenko");
         System.out.println(group.toString());
+        //task 4
+        try {
+            group.addStudentInteractive();
+        } catch (NoSuchFieldException e) {
+            System.out.println("*Exception* " + e.getMessage());
+            System.out.println("*This group is full! \n*Students can not add!");
+        }
+
+
+        System.out.println("Recruits");
+        System.out.println(Arrays.toString(group.getRecruits()));
+
+        System.out.println(group.sort(1));
     }
 }

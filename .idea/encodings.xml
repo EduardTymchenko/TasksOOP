@@ -3,15 +3,17 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Task01_2/src/Triangle.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Task01_3/src/Vector3d.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Task2/src/BlackboarOld.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Task2/src/Blackboard.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Task2/src/Circle.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Task2/src/Point.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Task2/src/Rectangle.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Task2/src/Shape.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Task2/src/Triangle.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Task3/src/Group.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Task3/src/Person.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Task3/src/Student.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Task3_4/src/Group.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Task3_4/src/Person.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Task3_4/src/Student.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Task4/src/Group.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Task4/src/Person.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Task4/src/Student.java" charset="UTF-8" />
   </component>
 </project>
