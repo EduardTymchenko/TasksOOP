@@ -21,7 +21,7 @@ public  class ThreadFactorial implements Runnable {
     }
 
     @Override
-    public synchronized void run() {
+    public void run() {
         factorial(n);
         System.out.println("Factorial " + n + " = " + factorial(n));
     }
