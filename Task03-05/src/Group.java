@@ -9,14 +9,73 @@ Task4:
     2. Реализуйте возможность сортировки списка студентов по фамилии.
     3. Реализуйте возможность сортировки по параметру (Фамилия, успеваемость и т. д.).
     4. Реализуйте интерфейс Военком которые вернет из группы массив студентов юношей которым больше 18 лет.
-    5. Протестируйте ее работу.*/
+    5. Протестируйте ее работу.
+Task5:
+    3. Усовершенствуйте класс описывающий группу студентов добавив возможность сохранения группы в файл.
+    4. Реализовать обратный процесс — т.е. считать данные о группе из файла и на их основе создать объект типа группа.
+
+
+    */
+
+import com.sun.corba.se.impl.orb.ORBConfiguratorImpl;
+
+import java.io.*;
 import java.util.Arrays;
+import java.util.Properties;
 import java.util.Scanner;
 
-public class Group implements MilitaryCommissar{
+public class Group implements MilitaryCommissar {
     private Student[] groupStudents = new Student[10];
 
-    public String sort(int columnNumber){
+    public Group readFromFile(String fileName) throws NoSuchFieldException {
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("Task03-05/" + fileName));
+        } catch (FileNotFoundException e) {
+            System.out.println("File Task03-05/" + fileName + " not found: " + e.getMessage());
+        }
+        Properties properties = new Properties();
+        try {
+            properties.load(br);
+        } catch (IOException e) {
+            System.out.println("Fault load Task03-05/" + fileName + ": " + e.getMessage());
+        }
+        Group newGrope = new Group();
+        for (int i = 0; i < groupStudents.length; i++) {
+            if (properties.getProperty("ticket" + (i + 1)) != null) {
+                int ticket = Integer.parseInt(properties.getProperty("ticket" + (i + 1)));
+                int age = Integer.parseInt(properties.getProperty("age" + (i + 1)));
+                String firstName = properties.getProperty("firstName" + (i + 1));
+                String familyName = properties.getProperty("familyName" + (i + 1));
+                String nationality = properties.getProperty("nationality" + (i + 1));
+                Sex sex = Sex.valueOf(properties.getProperty("sex" + (i + 1)));
+                newGrope.add(new Student(firstName, familyName, age, sex, nationality, ticket));
+            }
+        }
+        return newGrope;
+    }
+
+    public void saveTofile(String fileName) {
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("Task03-05/" + fileName))) {
+            for (int i = 0; i < groupStudents.length; i++) {
+                Properties properties = new Properties();
+                if (groupStudents[i] != null) {
+                    properties.setProperty("ticket" + (i + 1), Integer.toString(groupStudents[i].getNumberStudentTicket()));
+                    properties.setProperty("firstName" + (i + 1), groupStudents[i].getFirstName());
+                    properties.setProperty("familyName" + (i + 1), groupStudents[i].getFamilyName());
+                    properties.setProperty("age" + (i + 1), Integer.toString(groupStudents[i].getAge()));
+                    properties.setProperty("sex" + (i + 1), groupStudents[i].getSex().toString());
+                    properties.setProperty("nationality" + (i + 1), groupStudents[i].getNationality());
+                    properties.store(bw, (i + 1) + ". Student");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Failed to save file " + "Task03-05/" + fileName + " :" + e.getMessage());
+        }
+    }
+
+    public String sort(int columnNumber) {
         StringBuilder sb = new StringBuilder();
         Student[] sortGroup = new Student[groupStudents.length];
         int count = 0;
@@ -45,7 +104,7 @@ public class Group implements MilitaryCommissar{
                 default:
                     System.out.println("Not correct column number!");
             }
-        }catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             System.out.println("Exception Arrays.sort: " + e.getMessage());
         }
         for (Student item : sortGroup) {
@@ -115,6 +174,7 @@ public class Group implements MilitaryCommissar{
         }
         throw new NoSuchFieldException("Add 11th element");
     }
+
     //first incoming of last name
     public void remove(String familyName) {
         for (int i = 0; i < groupStudents.length; i++) {
@@ -132,14 +192,14 @@ public class Group implements MilitaryCommissar{
         int count = 0;
         for (int i = 0; i < groupStudents.length; i++) {
             if ((groupStudents[i - count] != null) && (groupStudents[i - count].getFamilyName() == familyName)) {
-                    System.arraycopy(groupStudents, i + 1 - count, groupStudents, i - count,
-                            groupStudents.length - (i + 1 - count));
-                    groupStudents[groupStudents.length - 1] = null;
-                    count++;
+                System.arraycopy(groupStudents, i + 1 - count, groupStudents, i - count,
+                        groupStudents.length - (i + 1 - count));
+                groupStudents[groupStudents.length - 1] = null;
+                count++;
             }
         }
         if (count == 0) System.out.println("The student " + familyName + " do not found!");
-        else  System.out.println("Students " + familyName + " removed!\nRemoved " + count +" records");
+        else System.out.println("Students " + familyName + " removed!\nRemoved " + count + " records");
     }
 
     public String search(String familyName) {
@@ -198,4 +258,5 @@ public class Group implements MilitaryCommissar{
         }
         return recruits;
     }
+
 }

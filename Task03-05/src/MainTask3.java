@@ -57,11 +57,18 @@ public class MainTask3 {
             System.out.println("*Exception* " + e.getMessage());
             System.out.println("*This group is full! \n*Students can not add!");
         }
-
-
         System.out.println("Recruits");
         System.out.println(Arrays.toString(group.getRecruits()));
 
         System.out.println(group.sort(1));
+
+        //task 5
+        group.saveTofile("group.properties");
+        try {
+            System.out.println(group.readFromFile("group.properties").toString());
+        } catch (NoSuchFieldException e) {
+            System.out.println("*Exception* " + e.getMessage());
+            System.out.println("*This group is full! \n*Students can not add!");
+        }
     }
 }
