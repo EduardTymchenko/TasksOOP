@@ -3,19 +3,22 @@ import java.util.HashSet;
 import java.util.StringTokenizer;
 
 public class CompareTextFiles {
+    private HashSet<String> listOut = new HashSet();
 
-    public void getEqualWords(String nameFile1, String nameFile2) {
+    public HashSet<String> getEqualWords(String nameFile1, String nameFile2) {
         String pathFile1 = "Task05_2/files/" + nameFile1;
         String pathFile2 = "Task05_2/files/" + nameFile2;
-        HashSet<String> listOut = new HashSet();
         // get identical words
         for (String word : getWordOfFile(pathFile1)) {
             if (getWordOfFile(pathFile2).contains(word)) listOut.add(word);
         }
+        return listOut;
+    }
         // write to the file
+    public void  writeResultToFile (String nameOutFile){
         if (listOut.isEmpty()) System.out.println("No identical words");
 
-        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(checkOutputFile()))) {
+        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(checkOutputFile(nameOutFile)))) {
             for (String word : listOut) {
                 fileWriter.write(word + "\n");
                 fileWriter.flush();
@@ -25,8 +28,8 @@ public class CompareTextFiles {
         }
     }
 
-    private File checkOutputFile() {
-        File file = new File("Task05_2/files/out.txt");
+    private File checkOutputFile(String nameFile) {
+        File file = new File("Task05_2/files/" + nameFile);
         if (!file.exists()) {
             try {
                 file.createNewFile();
