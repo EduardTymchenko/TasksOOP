@@ -1,11 +1,12 @@
 import java.io.*;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 public class CompareTextFiles {
-    private HashSet<String> listOut = new HashSet();
+    private Set<String> listOut = new HashSet();
 
-    public HashSet<String> getEqualWords(String nameFile1, String nameFile2) {
+    public Set<String> getEqualWords(String nameFile1, String nameFile2) {
         String pathFile1 = "Task05_2/files/" + nameFile1;
         String pathFile2 = "Task05_2/files/" + nameFile2;
         // get identical words
@@ -42,8 +43,8 @@ public class CompareTextFiles {
     }
 
     // choose only unique words
-    private HashSet<String> getWordOfFile(String path) {
-        HashSet<String> listWords = new HashSet<String>();
+    private Set<String> getWordOfFile(String path) {
+        Set<String> listWords = new HashSet();
         try {
             BufferedReader readFile = new BufferedReader(new FileReader(path));
             String currentLine = readFile.readLine();
