@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
 
 public class ThreadCopy implements Runnable {
     private File[] listFiles;
@@ -33,11 +34,12 @@ public class ThreadCopy implements Runnable {
     public void run() {
         checkDir(pathSource);
         checkDir(pathCopy);
+        System.out.println(Arrays.toString(listFiles));
         for (File file : listFiles) {
             try {
                 Files.copy(file.toPath(), Paths.get((pathCopy + "/" + file.getName())), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
-                System.out.println("Error copy files from " + pathSource + " to " + pathCopy);
+                System.out.println("Error copy files from " + pathSource + " to " + pathCopy + " : " + e.getMessage());
             }
         }
 

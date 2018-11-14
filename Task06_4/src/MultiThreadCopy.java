@@ -7,10 +7,10 @@ public class MultiThreadCopy {
         File[] listOfFiles = sourceDirFiles.listFiles();
 
         for (int i = 0; i < arrayThread.length; i++) {
-            int sizeOfThread = listOfFiles.length / numberThreads;
+            int sizeOfThread = Math.round((float) listOfFiles.length / numberThreads) ;
             int begin = i * sizeOfThread;
             int end = ((i + 1) * sizeOfThread);
-            if ((listOfFiles.length - end) < sizeOfThread) end = listOfFiles.length;
+            if (i == arrayThread.length - 1) end = listOfFiles.length;
 
             File[] listOfThread = new File[end - begin];
             System.arraycopy(listOfFiles,begin,listOfThread,0,end - begin);
