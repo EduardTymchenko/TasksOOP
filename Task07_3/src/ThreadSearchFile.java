@@ -32,7 +32,7 @@ public class ThreadSearchFile implements Callable<String> {
                 thread.start();
             } else {
                 if (file.getName().equalsIgnoreCase(fileName))
-                    sb.append(file.getAbsolutePath() + "\n");
+                    sb.append(file.getAbsolutePath()).append("\n");
             }
         }
         for (Future item : listDir) {
