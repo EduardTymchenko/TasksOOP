@@ -34,7 +34,6 @@ public class ThreadCopy implements Runnable {
     public void run() {
         checkDir(pathSource);
         checkDir(pathCopy);
-        System.out.println(Arrays.toString(listFiles));
         for (File file : listFiles) {
             try {
                 Files.copy(file.toPath(), Paths.get((pathCopy + "/" + file.getName())), StandardCopyOption.REPLACE_EXISTING);
