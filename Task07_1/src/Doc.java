@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+
 public class Doc implements Runnable{
     private boolean free = true;
     private String docNumber;
@@ -33,7 +35,7 @@ public class Doc implements Runnable{
                 e.getMessage();
             }
         }
-        System.out.println(ship.getNameShip() + " unloaded in doc " + docNumber);
+        System.out.println(ship.getNameShip() + " unloaded in doc " + docNumber + " " + LocalDateTime.now());
         ship = null;
         free = true;
     }
