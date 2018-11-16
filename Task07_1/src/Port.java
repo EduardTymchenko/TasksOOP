@@ -15,17 +15,17 @@ public class Port {
         }
     }
 
-    public void shipManagement() throws InterruptedException {
+    public void shipManagement(){
         Thread thread;
         while (!emptyShips(arrayShips)) {
             for (int i = 0; i < arrayShips.length; i++) {
                 if (arrayShips[i] != null) {
-                    for (Doc doc : arrayDocs) {
-                        if (doc.isFree()) {
-                            doc.setShip(arrayShips[i]);
-                            thread = new Thread(doc);
+                    for (int j = 0; j < arrayDocs.length; j++) {
+                        if (arrayDocs[j].isFree()) {
+                            arrayDocs[j].setShip(arrayShips[i]);
+                            arrayDocs[j].setFree(false);
+                            thread = new Thread(arrayDocs[j]);
                             thread.start();
-                            thread.join();
                             arrayShips[i] = null;
                             break;
                         }
@@ -33,8 +33,8 @@ public class Port {
                 }
             }
         }
-        System.out.println("All ships unloaded");
     }
+
 
     private boolean emptyShips(Ship[] ships) {
         boolean empty = true;

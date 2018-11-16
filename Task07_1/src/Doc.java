@@ -25,7 +25,6 @@ public class Doc implements Runnable{
 
     @Override
     public  void run() {
-        free = false;
         for (int i = ship.getNumberBoxes(); i > 0 ; ){
             try {
                 Thread.sleep(500);
@@ -34,7 +33,7 @@ public class Doc implements Runnable{
                 e.getMessage();
             }
         }
-        System.out.println(ship.getNameShip() + " unloaded");
+        System.out.println(ship.getNameShip() + " unloaded in doc " + docNumber);
         ship = null;
         free = true;
     }
