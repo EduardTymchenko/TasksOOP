@@ -35,7 +35,7 @@ public class Doc implements Runnable{
                 e.getMessage();
             }
         }
-        System.out.println(ship.getNameShip() + " unloaded in " + docNumber + "at " + LocalDateTime.now());
+        System.out.println(ship.getNameShip() + " unloaded in " + docNumber + "  at " + LocalDateTime.now());
         ship = null;
         free = true;
     }
