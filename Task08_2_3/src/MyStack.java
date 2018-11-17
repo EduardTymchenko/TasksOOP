@@ -22,7 +22,7 @@ public class MyStack {
             return;
         }
         if(!blackList.checkObject(element)) arrayObjects[++top] = element;
-        else System.out.println("Not add, class " + element.getClass() + " is in Black List");
+        else System.out.println("Not add, " + element.getClass() + " is in Black List");
     }
 
     public Object getDeleleElement() {
