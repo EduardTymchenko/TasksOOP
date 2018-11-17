@@ -15,6 +15,7 @@ public class MainTask08_2_3 {
             System.out.println(myStack.getDeleleElement());
         }
         System.out.println("-------");
+        
         myStack.getBlackList().addBL(String.class);
 
         myStack.addElement(new Integer(2));
