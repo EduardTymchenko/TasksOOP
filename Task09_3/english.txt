@@ -1,0 +1,4 @@
+Java collection interfaces are the foundation of the Java Collections Framework.
+Note that all the core collection interfaces are generic; for example public interface Collection<E>.
+The <E> syntax is for Generics and when we declare Collection, we should use it to specify the type of Object it can contain.
+It helps in reducing run-time errors by type-checking the Objects at compile-time.
