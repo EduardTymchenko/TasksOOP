@@ -25,5 +25,9 @@ public class MainTask06_2 {
         System.out.println("Total summa (thread 20): " + MultiTreadSumm.summaThreads(arrayInteger,20));
         System.out.println("Lead time: " + (System.currentTimeMillis() - timeStart20));
 
+        long timeStart40 = System.currentTimeMillis();
+        System.out.println("Total summa (thread 40): " + MultiTreadSumm.summaThreads(arrayInteger,40));
+        System.out.println("Lead time: " + (System.currentTimeMillis() - timeStart40));
+
     }
 }
