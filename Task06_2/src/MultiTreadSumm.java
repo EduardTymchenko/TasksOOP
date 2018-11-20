@@ -8,17 +8,14 @@ public class MultiTreadSumm {
             if ((arrayInt.length - end) < size) end = arrayInt.length;
             arrayThread[i] = new SingleThreadSumm(begin, end, arrayInt);
         }
+        int summaThread = 0;
         for (int i = 0; i < arrayThread.length; i++) {
             try {
                 arrayThread[i].getThread().join();
+                summaThread += arrayThread[i].getSumma();
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
-        }
-
-        int summaThread = 0;
-        for (int i = 0; i < arrayThread.length; i++) {
-                summaThread += arrayThread[i].getSumma();
         }
         return summaThread;
     }
