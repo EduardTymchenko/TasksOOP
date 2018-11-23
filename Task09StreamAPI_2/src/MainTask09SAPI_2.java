@@ -7,6 +7,8 @@ public class MainTask09SAPI_2 {
         int rezNegative = Arrays.stream(arrayInt).filter(n -> n < 0).max().getAsInt();
         System.out.println(rezNegative);
         System.out.println(rezPositive);
+        System.out.println("------");
+        
         if (rezPositive <= Math.abs(rezNegative)) System.out.println(rezPositive);
         else System.out.println(rezNegative);
     }
