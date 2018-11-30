@@ -1,20 +1,22 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.net.*;
 
 public class MainTask111 {
     public static void main(String[] args) {
         try (BufferedReader br = new BufferedReader(new FileReader("Task11_1/listSites.txt"))) {
-            InetAddress inetAddress;
             String line;
             while ((line = br.readLine()) != null) {
+                line = "http://" + line;
                 try {
-                    inetAddress = InetAddress.getByName(line.trim());
-                    System.out.println("Site " + inetAddress + " available");
-                } catch (UnknownHostException ei) {
-                    System.out.println("Site " + ei.getMessage() + " NOT available");
+                    URL url = new URL(line);
+                    HttpURLConnection http = (HttpURLConnection) url.openConnection();
+                    if (http.getResponseCode() >= 400) System.out.println("Site NOT available :" + http.getResponseCode());
+                    else System.out.println("Site " + url + " available - code response " + http.getResponseCode());
+
+                } catch (IOException e) {
+                    System.out.println("Error connection: " + e.getMessage());
                 }
             }
         } catch (IOException e) {
