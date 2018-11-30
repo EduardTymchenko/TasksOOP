@@ -12,9 +12,9 @@ public class MainTask111 {
             while ((line = br.readLine()) != null) {
                 try {
                     inetAddress = InetAddress.getByName(line.trim());
-                    System.out.println("Сайт " + inetAddress + " доступен");
+                    System.out.println("Site " + inetAddress + " available");
                 } catch (UnknownHostException ei) {
-                    System.out.println("Сайт " + ei.getMessage() + " НЕ доступен");
+                    System.out.println("Site " + ei.getMessage() + " NOT available");
                 }
             }
         } catch (IOException e) {
