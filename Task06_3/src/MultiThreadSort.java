@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class MultiThreadSort {
     public static void sortShellThreads(int[] arrayInt, int numberThreads){
@@ -9,7 +8,6 @@ public class MultiThreadSort {
             int end = ((i + 1) * size);
             if (i == arrayThread.length - 1) end = arrayInt.length;
             arrayThread[i] = new SingleThreadSort(arrayInt,begin, end);
-            //System.out.println(Arrays.toString(arrayInt));
         }
         for (int i = 0; i < arrayThread.length; i++) {
             try {

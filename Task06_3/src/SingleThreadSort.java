@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class SingleThreadSort implements Runnable {
     private int[] arrayInt;
@@ -43,31 +42,25 @@ public class SingleThreadSort implements Runnable {
     }
 
     @Override
-    public void run() {
+    public  void run() {
         int increment = (end - begin) / 2;
         while (increment >= 1) {
-            for (int startIndex = 0; startIndex < increment; startIndex++) {
-                //System.out.println(Arrays.toString(arrayInt));
-
-                insertionSort(arrayInt, startIndex, increment);
+            for (int startIndex = begin; startIndex < (increment + begin ); startIndex++) {
+                insertionSort(arrayInt, startIndex, increment );
             }
             increment = increment / 2;
-            System.out.println(Arrays.toString(arrayInt));
         }
-        //System.out.println(Arrays.toString(arrayInt));
     }
 
     private void insertionSort(int[] arr, int startIndex, int increment) {
-        for (int i = begin; i < end ; i = i + increment) {
-            for (int j = Math.min(i + increment, end - 1); j - increment >= 0; j = j - increment) {
-                if (arr[j - increment] > arr[j]) {
-                    int tmp = arr[j];
-                    arr[j] = arr[j - increment];
-                    arr[j - increment] = tmp;
-                } else {
-                    break;
-                }
+        for (int i = startIndex + increment; i < end ; i = i + increment) {
+            int tmp = arr[i];
+            int j = i - increment;
+            while (  j >= startIndex && tmp < arr[j]){
+                arr[j + increment] = arr[j];
+                j = j - increment;
             }
+            arr[j + increment] = tmp;
         }
     }
 }
